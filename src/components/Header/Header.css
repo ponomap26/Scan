@@ -1,0 +1,119 @@
+.screen {
+  background-color: #ffffff;
+  height: 93px;
+  position: relative;
+  width: 1440px;
+}
+
+.screen .SGN {
+  height: 93px;
+  left: 60px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 141px;
+}
+
+.screen .group {
+  height: 17px;
+  left: 602px;
+  position: absolute;
+  top: 38px;
+  width: 242px;
+}
+
+.screen .text-wrapper {
+  color: #000000;
+  font-family: "Inter-Medium", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0.14px;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+}
+
+.screen .div {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 106px;
+  letter-spacing: 0.14px;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+}
+
+.screen .text-wrapper-2 {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 209px;
+  letter-spacing: 0.14px;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+}
+
+.screen .group-2 {
+  height: 26px;
+  left: 1129px;
+  position: absolute;
+  top: 33px;
+  width: 253px;
+}
+
+.screen .text-wrapper-3 {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0.14px;
+  line-height: normal;
+  opacity: 0.4;
+  position: absolute;
+  top: 4px;
+}
+
+.screen .overlap-group-wrapper {
+  height: 26px;
+  left: 186px;
+  position: absolute;
+  top: 0;
+  width: 67px;
+}
+
+.screen .overlap-group {
+  background-color: #7ce3e1;
+  border-radius: 5px;
+  height: 26px;
+  position: relative;
+  width: 65px;
+}
+
+.screen .text-wrapper-4 {
+  color: #000000;
+  font-family: "Inter-Medium", Helvetica;
+  font-size: 14px;
+  font-weight: 500;
+  left: 12px;
+  letter-spacing: 0.14px;
+  line-height: normal;
+  position: absolute;
+  top: 4px;
+}
+
+.screen .rectangle {
+  background-color: #029491;
+  height: 26px;
+  left: 164px;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  transform: rotate(180deg);
+  width: 2px;
+}
