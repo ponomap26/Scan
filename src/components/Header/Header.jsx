@@ -1,6 +1,7 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import "./Header.css";
-import {Button, NavLink} from "react-bootstrap";
+import {Button} from "react-bootstrap";
 import logo1 from "/src/public/images/SGN_09_24_2022_1663968217400 1.png"
 
 const Header = () => {
@@ -8,18 +9,20 @@ const Header = () => {
     <div className="screen">
           <img className="SGN"  src={logo1} alt="logo" />
           <div className="group">
-            <NavLink className="text-wrapper">Главная</NavLink>
-            <NavLink className="div">Тарифы</NavLink>
-            <NavLink className="text-wrapper-2">FAQ</NavLink>
+            <Link className="text-wrapper" to="/">Главная</Link>
+            <Link className="div">Тарифы</Link>
+            <Link className="text-wrapper-2">FAQ</Link>
           </div>
           <div className="group-2">
-            <NavLink className="text-wrapper-3">Зарегистрироваться</NavLink>
+            <Link className="text-wrapper-3">Зарегистрироваться</Link>
             <div className="overlap-group-wrapper">
-                <Button className="overlap-group">Войти</Button>
+                <Link className="overlap-group" to="/auth">
+                  <Button>Войти</Button>
+                </Link>
             </div>
-            {/*<div className="rectangle" />*/}
+
           </div>
     </div>
   );
 };
-export default Header
+export default Header;

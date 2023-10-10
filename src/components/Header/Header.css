@@ -24,7 +24,9 @@
 
 .screen .text-wrapper {
   color: #000000;
-  font-family: "Inter-Medium", Helvetica;
+  font-family:  Helvetica;
+
+
   font-size: 14px;
   font-weight: 400;
   left: 0;
@@ -66,18 +68,6 @@
   width: 253px;
 }
 
-.screen .text-wrapper-3 {
-  color: #000000;
-  font-family: "Inter-Regular", Helvetica;
-  font-size: 14px;
-  font-weight: 400;
-  left: 0;
-  letter-spacing: 0.14px;
-  line-height: normal;
-  opacity: 0.4;
-  position: absolute;
-  top: 4px;
-}
 
 .screen .overlap-group-wrapper {
   height: 26px;
@@ -95,17 +85,7 @@
   width: 65px;
 }
 
-.screen .text-wrapper-4 {
-  color: #000000;
-  font-family: "Inter-Medium", Helvetica;
-  font-size: 14px;
-  font-weight: 500;
-  left: 12px;
-  letter-spacing: 0.14px;
-  line-height: normal;
-  position: absolute;
-  top: 4px;
-}
+
 
 .screen .rectangle {
   background-color: #029491;

@@ -1,18 +1,24 @@
 import React from "react";
-import Header from "../Header/Header.jsx";
-import Footer from "../Footer/Footer.jsx";
+
+
+import {Routes, Route} from "react-router-dom";
+
+import Home from "../Home/Home.jsx";
+import Auth from "../Auth/Auth.jsx";
 
 
 function  App(){
         return(
             <>
-                <Header />
-                <Footer />
+               <Routes>
+
+                    <Route path="/" element={<Home />}/>
+                    <Route path="/auth" element={<Auth />}/>
+              </Routes>
+
 
             </>
-
-
-            );
+        )
 }
 
 export default App;
