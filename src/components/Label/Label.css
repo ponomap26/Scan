@@ -1,0 +1,54 @@
+
+.label {
+  height: 288px;
+  width: 743px;
+}
+
+.label .text-wrapper {
+  color: #000000;
+  font-family: "Ferry-Black", Helvetica;
+  font-size: 40px;
+  font-weight: 900;
+  left: 60px;
+  letter-spacing: 0.6px;
+  line-height: normal;
+  /*position: fixed;*/
+  top: 162px; /* change this value to adjust the text position */
+  width: 543px;
+}
+
+.label-1 {
+  height: 48px;
+  width: 534px;
+}
+
+.label .PDF {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 20px;
+  line-height: normal;
+  /*position: fixed;*/
+  top: 400px;
+  width: 504px;
+}
+
+.label .text-wrapper-1 {
+  letter-spacing: 0.2px;
+}
+
+.label .span {
+  letter-spacing: 0;
+}
+
+.image-2 {
+  position: absolute;
+  right: 60px;
+  top: 144px;
+}
+
+.image-2 img {
+  max-width: 100%;
+  max-height: 100%;
+}

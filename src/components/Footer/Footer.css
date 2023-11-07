@@ -3,20 +3,20 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%;
     padding: 22px ;
-    height: 60px;
     text-align: right;
     border-radius: 5px;
     image-rendering: revert;
     cursor: pointer;
+    height: 93px;
+    width: 100%;
 }
 
 .eqw {
     position: fixed;
     left: 0;
-    height: 111px;
-    width: 111px;
+    height: 141px;
+    width: 141px;
     object-fit: cover;
 }
 

@@ -1,20 +1,21 @@
 import React from 'react';
-import Footer from "../Footer/Footer";
-import  Header from "../Header/Header";
+import {redirect} from "react-router-dom";
+
+import {Label} from "../Label/Label";
 
 
-function Home (){
-    return(
+function Home() {
+    return (
         <>
-            <Header />
-
-            <Footer />
+            <redirect to="/login" />
+            <Label/>
 
         </>
 
 
-)
+    )
 
 
 }
+
 export default Home;

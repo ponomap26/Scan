@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import "./Header.css";
 import {Button} from "react-bootstrap";
-import logo1 from "/src/public/images/SGN_09_24_2022_1663968217400 1.png"
+import logo1 from "../public/images/SGN_09_24_2022_1663968217400 1.png"
 
 const Header = () => {
   return (
@@ -16,7 +16,7 @@ const Header = () => {
           <div className="group-2">
             <Link className="text-wrapper-3">Зарегистрироваться</Link>
             <div className="overlap-group-wrapper">
-                <Link className="overlap-group" to="/auth">
+                <Link className="overlap-group" to="/login">
                   <Button>Войти</Button>
                 </Link>
             </div>

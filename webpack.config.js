@@ -33,9 +33,9 @@ module.exports = {
                 test: /\.(png|jpg|jpeg|gif)$/i,
                 use: [
                  {
-                   loader: 'file-loader',
+                   loader: 'url-loader',
                    options: {
-                   publicPath: './scr/public/images/',}
+                   publicPath: '../components/public/images/',}
                  },
                ],
 
