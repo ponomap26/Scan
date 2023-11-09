@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Footer.css"
-import Eqw from "../public/images/eqw-1@2x.png"
+import Eqw from "../../public/images/eqw-1@2x.png"
 import {Image} from "react-bootstrap";
 
 const Footer = () => (

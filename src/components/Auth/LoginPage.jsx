@@ -1,72 +1,82 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState, useContext, FormEvent } from "react";
+import axios from "axios";
 
+// import { Context } from "./store/store.jsx";
+
+// Компонент для формы ввода логина и пароля
 const LoginPage = () => {
-  const [login, setLogin] = useState('');
-  const [password, setPassword] = useState('');
-  const [token, setToken] = useState('');
+  const [login, setLogin] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
 
-  const handleLoginChange = (e) => {
-    setLogin(e.target.value);
-  };
+const handleSubmit = (e) => {
+  e.preventDefault();
+};
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-
-    // Отправка запроса на сервер для авторизации
-    axios
-      .post('https://gateway.scan-interfax.ru/api/v1/account/login', {
-        login,
-        password,
-      })
-      .then((response) => {
-        // Обработка успешного ответа от сервера
-        const { token } = response.data;
-        setToken(token);
-
-        // Очистка полей формы
-        setLogin('');
-        setPassword('');
-
-        // Дополнительные действия после успешной авторизации
-        // Например, сохранение токена в локальном хранилище
-        // или перенаправление на другую страницу
-        try {
-          localStorage.setItem('accessToken', token);
-          console.log(token)
-        } catch (error) {
-          console.error('Ошибка при сохранении токена:', error);
-        }
-      })
-      .catch((error) => {
-        // Обработка ошибки
-        console.error('Ошибка при авторизации:', error);
-      });
-  };
+    // Проверяем, что логин и пароль не пустые
+  //   if (!login || !password) {
+  //     setError("Пожалуйста, введите логин и пароль");
+  //     return;
+  //   }
+  //
+  //   const json = {
+  //     login,
+  //     password,
+  //   };
+  //
+  //   try {
+  //     const response = await axios.post(
+  //       "https://gateway.scan-interfax.ru/api/v1/account/login",
+  //       json
+  //     );
+  //
+  //     const token = response.data.token;
+  //
+  //
+  //     localStorage.setItem("token", token);
+  //
+  //     window.location.href = "/";
+  //   } catch (error) {
+  //     if (error.response && error.response.status === 401) {
+  //       setError("Неверный логин или пароль");
+  //     } else {
+  //       setError("Произошла ошибка при авторизации");
+  //     }
+  //   }
+  // };
 
   return (
-    <>
-      <div className="111">
-        <h2>Форма авторизации</h2>
-      <form onSubmit={handleFormSubmit}>
-        <div>
-          <label htmlFor="login">Логин:</label>
-          <input type="text" id="login" value={login} onChange={handleLoginChange} />
+    <div className="login-page">
+      <form onSubmit={handleSubmit}>
+        <div className="login_page-1">
+          <label htmlFor="login">Login
+          <input
+          name="login"
+          onChange={(e) => setLogin(e.target.value)}
+          value={login}
+          type="text"
+          placeholder="Логин"
+        />
+        </label>
         </div>
-        <div>
-          <label htmlFor="password">Пароль:</label>
-          <input type="password" id="password" value={password} onChange={handlePasswordChange} />
+        <div className="login_page-2">
+          <label htmlFor="password">Password
+             <input
+          name="password"
+          onChange={(e) => setPassword(e.target.value)}
+          value={password}
+          type="password"
+          placeholder="Пароль"
+        />
+          </label>
         </div>
-        <button type="submit">Войти</button>
-      </form>
-      </div>
+        <div className="login_page-2">
+          <button type="submit">Войти</button>
+        </div>
 
-    </>
+      </form>
+    </div>
   );
 };
 
-export default LoginPage
+export default LoginPage;

@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import "./Header.css";
 import {Button} from "react-bootstrap";
-import logo1 from "../public/images/SGN_09_24_2022_1663968217400 1.png"
+import logo1 from "../../public/images/SGN_09_24_2022_1663968217400 1.png"
 
 const Header = () => {
   return (
