@@ -1,13 +1,13 @@
 import React from "react";
 import { Router, Routes, Route } from "react-router-dom";
-import { createBrowserHistory } from "history";
+
 
 import Home from "../Home/Home.jsx";
 import LoginPage from "../Auth/LoginPage.jsx";
 import Layout from "../Layout/Layout.jsx";
 
-// Create a history object
-// const history = createBrowserHistory();
+
+
 
 function App() {
   return (

@@ -1,46 +1,72 @@
 import React, { useState } from "react";
-
 import { useDispatch } from "react-redux";
-import { logiUser } from "./store/actionCreators";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    dispatch(logiUser({ login, password }));
+    if (!login || !password) {
+      setError("Please enter a login and password");
+      return;
+    }
+
+    try {
+      const response = await axios.post(
+        "https://gateway.scan-interfax.ru/api/v1/account/login",
+        { login, password }
+      );
+
+      const token = response.data.accessToken;
+
+      console.log("token: " + token);
+
+      localStorage.setItem("token", token);
+      navigate("/"); // Redirect to the home page
+
+      // Dispatch an action to update the redux state
+      // dispatch(loginUser({ login, password }));
+    } catch (error) {
+      if (error.response && error.response.status === 401) {
+        setError("Invalid login or password");
+      } else {
+        setError("An error occurred during authorization");
+      }
+    }
   };
 
   return (
-    <div className="login-page">
+    <div>
+      <h1>Login</h1>
       <form onSubmit={handleSubmit}>
-        <div className="login_page-1">
-          <label htmlFor="login">Login</label>
+        <label>
+          Login
           <input
-            name="login"
             onChange={(e) => setLogin(e.target.value)}
             value={login}
             type="text"
-            placeholder="Логин"
+            placeholder="Login"
           />
-        </div>
-        <div className="login_page-2">
-          <label htmlFor="password">Password</label>
+        </label>
+        <br />
+        <label>
+          Password
           <input
-            name="password"
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             type="password"
-            placeholder="Пароль"
+            placeholder="Password"
           />
-        </div>
-        <div className="login_page-2">
-          <button>Войти</button>
-        </div>
+        </label>
+        <br />
+        <button type="submit">Login</button>
       </form>
     </div>
   );
