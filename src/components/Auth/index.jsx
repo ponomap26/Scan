@@ -1,5 +1,5 @@
-import {axiosInstance} from "./instance";
-import Endpoints from "./endpoints";
+import {axiosInstance} from "./auth/instance";
+import Endpoints from "./auth/endpoints";
 
 export const login = (params) => {
   return axiosInstance.post(Endpoints.Auth.LOGIN, params);

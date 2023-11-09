@@ -1,79 +1,46 @@
-import React, { useState, useContext, FormEvent } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 
-// import { Context } from "./store/store.jsx";
+import { useDispatch } from "react-redux";
+import { logiUser } from "./store/actionCreators";
 
-// Компонент для формы ввода логина и пароля
 const LoginPage = () => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  const dispatch = useDispatch();
 
-const handleSubmit = (e) => {
-  e.preventDefault();
-};
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-    // Проверяем, что логин и пароль не пустые
-  //   if (!login || !password) {
-  //     setError("Пожалуйста, введите логин и пароль");
-  //     return;
-  //   }
-  //
-  //   const json = {
-  //     login,
-  //     password,
-  //   };
-  //
-  //   try {
-  //     const response = await axios.post(
-  //       "https://gateway.scan-interfax.ru/api/v1/account/login",
-  //       json
-  //     );
-  //
-  //     const token = response.data.token;
-  //
-  //
-  //     localStorage.setItem("token", token);
-  //
-  //     window.location.href = "/";
-  //   } catch (error) {
-  //     if (error.response && error.response.status === 401) {
-  //       setError("Неверный логин или пароль");
-  //     } else {
-  //       setError("Произошла ошибка при авторизации");
-  //     }
-  //   }
-  // };
+    dispatch(logiUser({ login, password }));
+  };
 
   return (
     <div className="login-page">
       <form onSubmit={handleSubmit}>
         <div className="login_page-1">
-          <label htmlFor="login">Login
+          <label htmlFor="login">Login</label>
           <input
-          name="login"
-          onChange={(e) => setLogin(e.target.value)}
-          value={login}
-          type="text"
-          placeholder="Логин"
-        />
-        </label>
+            name="login"
+            onChange={(e) => setLogin(e.target.value)}
+            value={login}
+            type="text"
+            placeholder="Логин"
+          />
         </div>
         <div className="login_page-2">
-          <label htmlFor="password">Password
-             <input
-          name="password"
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-          type="password"
-          placeholder="Пароль"
-        />
-          </label>
+          <label htmlFor="password">Password</label>
+          <input
+            name="password"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            type="password"
+            placeholder="Пароль"
+          />
         </div>
         <div className="login_page-2">
-          <button type="submit">Войти</button>
+          <button>Войти</button>
         </div>
-
       </form>
     </div>
   );
