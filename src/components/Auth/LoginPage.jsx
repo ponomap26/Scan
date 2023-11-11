@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import {Button} from "react-bootstrap";
 
 const LoginPage = () => {
   const [login, setLogin] = useState("");
@@ -66,7 +67,7 @@ const LoginPage = () => {
           />
         </label>
         <br />
-        <button type="submit">Login</button>
+        <Button type="submit" variant="primary">Войти</Button>
       </form>
     </div>
   );

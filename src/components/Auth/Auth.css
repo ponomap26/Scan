@@ -17,6 +17,43 @@
   width: 482px;
 }
 
+@media (max-width: 768px) {
+  .label {
+    height: auto;
+    width: 100%;
+  }
+
+  .label .text-wrapper {
+    font-size: 30px;
+    left: 10px;
+    top: 100px; / adjust this value for your desired position /
+    width: 80%;
+  }
+
+  .label-1 {
+    height: auto;
+    width: 90%;
+  }
+
+  .label .PDF {
+    left: 10px;
+    top: 240px; / adjust this value for your desired position /
+    width: 80%;
+  }
+
+  .image-2 {
+    position: static;
+    width: 100%;
+    top: auto;
+    right: auto;
+  }
+
+  .image-2 img {
+    max-width: 100%;
+    max-height: none;
+  }
+}
+
 .box .overlap-wrapper {
   height: 523px;
   left: 51px;

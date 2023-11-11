@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Label.css";
 import logo from "../public/images/2398-1.png";
+import Button from 'react-bootstrap/Button';
 
 export const Label = () => {
   const navigate = useNavigate();
@@ -35,11 +36,11 @@ export const Label = () => {
         </p>
       </div>
       <div className="image-2">
-        <img src={logo} alt="Inn" width="593px" height="629px" />
+        <img src={logo} alt="Inn" width="393px" height="429px" />
       </div>
-      <button onClick={handleSecretPageClick}>
+      <Button  href="#" onClick={handleSecretPageClick} >
         Запросить данные
-      </button>
+      </Button>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 import { Button } from "react-bootstrap";
@@ -6,11 +6,26 @@ import logo1 from "../../public/images/sgn-09-24-2022-1663968217400-1.png";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../../Auth/store/authReducer";
+import { login } from "../../Auth";
 
 const Header = () => {
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const [username, setUsername] = useState("");
+
+  useEffect(() => {
+    const storedUsername = localStorage.getItem("login");
+    if (storedUsername) {
+      setUsername(storedUsername);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("login", name);
+  }, [name]);
+  console.log(name)
 
   // Check if the user is authenticated using the access token in localStorage
   const isAuthenticated = !!localStorage.getItem("token");
@@ -42,7 +57,7 @@ const Header = () => {
           {isAuthenticated ? (
             <span className="overlap-group">
               {auth.login?.login}
-              <Button onClick={handleLogout}>Выйти {}</Button>
+              <Button onClick={handleLogout}>Выйти</Button>
             </span>
           ) : (
             <Link className="overlap-group" to="/login">
