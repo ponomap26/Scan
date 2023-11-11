@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../../Auth/store/authReducer";
 import { login } from "../../Auth";
+import axios from "axios"; // Import axios to make HTTP requests
 
 const Header = () => {
   const auth = useSelector((state) => state.auth);
@@ -41,6 +42,33 @@ const Header = () => {
     navigate("/login");
   };
 
+  // Create a state variable to store the response data
+  const [data, setData] = useState(null);
+
+  // Create a function to call the API
+  const fetchData = async () => {
+    try {
+      // Get the access token from localStorage
+      const token = localStorage.getItem("token");
+      // Make a GET request with the URL and the authorization header
+      const response = await axios.get("https://gateway.scan-interfax.ru/api/v1/account/info", {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+      // Set the data state with the response data
+      setData(response.data);
+    } catch (error) {
+      // Handle any errors
+      console.error(error);
+    }
+  };
+
+  // Use useEffect hook to call the function when the component mounts
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <div className="screen">
       <img className="SGN" src={logo1} alt="logo" />
@@ -66,6 +94,16 @@ const Header = () => {
           )}
         </div>
       </div>
+      {/* Use JSX to render the data in the UI */}
+
+        {isAuthenticated && data && (
+        <div className="data-1">
+          <p>Использованно компаний: {data.eventFiltersInfo.usedCompanyCount}</p>
+          <p>Лимит по компаниям : {data.eventFiltersInfo.companyLimit}</p>
+        </div>
+      )}
+
+
     </div>
   );
 };

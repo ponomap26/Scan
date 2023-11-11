@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "./Label.css";
 import logo from "../public/images/2398-1.png";
@@ -12,11 +13,15 @@ export const Label = () => {
 
   const handleSecretPageClick = () => {
     if (isAuthenticated) {
-      navigate("/secret-page");
+      navigate("/data");
     } else {
       navigate("/login");
     }
   };
+
+
+
+
 
   return (
     <div className="label">
@@ -38,9 +43,11 @@ export const Label = () => {
       <div className="image-2">
         <img src={logo} alt="Inn" width="393px" height="429px" />
       </div>
-      <Button  href="#" onClick={handleSecretPageClick} >
+      <Button href="#" onClick={handleSecretPageClick}>
         Запросить данные
       </Button>
+      {/* Use JSX to render the data in the UI */}
+
     </div>
   );
 };
