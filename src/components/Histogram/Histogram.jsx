@@ -1,34 +1,44 @@
-// import React from "react";
-// import {Info} from "../Date/Data.jsx;
-//
-//
-// const Histogram = () => {
-//   const { data, responseData } = Info();
-//
-//   return (
-//     <div className="display">
-//       <h1>Data from API</h1>
-//       {responseData ? (
-//         <div className="data">
-//           <p>INN: {data.inn}</p>
-//           <p>Tone: {data.tone}</p>
-//           <p>Fullness: {data.fullness ? "Yes" : "No"}</p>
-//           <p>Business: {data.business ? "Yes" : "No"}</p>
-//           <p>Main Role: {data.mainRole ? "Yes" : "No"}</p>
-//           <p>Announcements: {data.announcements ? "Yes" : "No"}</p>
-//           <p>Risk Factors: {data.riskFactors ? "Yes" : "No"}</p>
-//           <p>Technical News: {data.technicalNews ? "Yes" : "No"}</p>
-//           <p>Summaries: {data.summaries ? "Yes" : "No"}</p>
-//           <p>Limit: {data.limit}</p>
-//           <p>Start Date: {data.startDate}</p>
-//           <p>End Date: {data.endDate}</p>
-//
-//         </div>
-//       ) : (
-//         <p>No data available</p>
-//       )}
-//     </div>
-//   );
-// };
-//
-// export default Histogram;
+import React, {useContext} from "react";
+import DataContext from "./DataContext";
+
+
+const Histogram = () => {
+ const info = useContext(DataContext);
+
+  // Преобразовать объект info в массив
+  const data = Object.entries(info).map(([date, values]) => ({
+    date: date,
+    totalDocuments: values.histogramTypes.totalDocuments,
+    riskFactors: values.histogramTypes.riskFactors
+  }));
+
+  return (
+    <div>
+      <h2>Информация</h2>
+      {data.length > 0 ? (
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Total Documents</th>
+              <th>Risk Factors</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((item, index) => (
+              <tr key={index}>
+                <td>{item.date}</td>
+                <td>{item.totalDocuments}</td>
+                <td>{item.riskFactors}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <p>No data available</p>
+      )}
+    </div>
+  );
+};
+
+export default Histogram;

@@ -20,7 +20,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/data" element={<Data />} />
-          <Route path="/histogram" element={<Histogram/>} />
+          <Route path="/histogram" element={<Histogram />} />
         </Route>
       </Routes>
 
