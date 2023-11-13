@@ -11,6 +11,7 @@ import Histogram from "../Histogram/Histogram";
 
 
 
+
 function App() {
   return (
     // Pass the history prop to the Router component

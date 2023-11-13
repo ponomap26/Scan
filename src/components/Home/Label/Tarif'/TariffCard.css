@@ -1,0 +1,177 @@
+.card {
+    width: 415px;
+    height: 540px;
+    font-size: 18px;
+    line-height: 22px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.card .card-header {
+    display: flex;
+    justify-content: space-between;
+    height: 132px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.card .card-header .left {
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.card .card-title {
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 36px;
+    margin-bottom: 10px;
+}
+
+.card-header img {
+    width: 92px;
+    height: 83px;
+    margin-top: 15px;
+    margin-right: 16px;
+}
+
+.card-main {
+    display: flex;
+    flex-direction: column;
+    padding-top: 33px;
+    padding-left: 30px;
+}
+
+.card-main .badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 134px;
+    height: 24px;
+    background: #3BA5E0;
+    border-radius: 10px;
+    font-size: 14px;
+    line-height: 17px;
+    color: #ffffff;
+    align-self: flex-end;
+    margin-top: -24.5px;
+    margin-right: 10px;
+}
+
+.card-main .price {
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 36px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.card-main .price span {
+    margin-left: 19px;
+    font-size: 25px;
+    line-height: 30px;
+    opacity: 0.5;
+    text-decoration: line-through;
+}
+
+.card-main .installments {
+    margin-bottom: -22px;
+}
+
+.card-main .includes {
+    margin-top: 91px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 500;
+}
+
+.card-main .includes-list {
+    padding-left: 0;
+}
+
+.card-main li {
+    background: url('./checkmark.png') no-repeat left center;
+    background-size: 20px 20px;
+    padding-left: 25px;
+    list-style: none;
+    margin-bottom: 5px;
+}
+
+.card-main .button {
+    margin-top: 50px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    width: 355px;
+}
+
+@media (max-width: 455px) {
+    .card-main .button {
+        width: 335px;
+    }
+}
+
+@media (max-width: 433px) {
+    .card {
+        width: 335px;
+        height: 512px;
+    }
+
+    .card .card-header .left {
+        margin-top: 30px;
+        margin-left: 24px;
+    }
+
+    .card .card-title {
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 22px;
+    }
+
+    .card .card-header .card-description {
+        width: 120%;
+    }
+
+    .card-header img {
+        width: 59px;
+        height: 53px;
+    }
+
+    .card-main {
+        padding-top: 20px;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .card-main .badge {
+        display: none;
+    }
+
+    .card-main .price {
+        margin-bottom: 36px;
+    }
+
+    .card-main .installments {
+        margin-top: -26px;
+        margin-bottom: 36px;
+        margin-right: 37px;
+    }
+
+    .card-main .includes {
+        margin-top: 0;
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .card-main li {
+        margin-bottom: 8px;
+        font-size: 16px;
+        line-height: 19px;
+    }
+
+    .card-main .button {
+        margin-top: 39px;
+        width: 286px;
+        height: 59px;
+    }
+}

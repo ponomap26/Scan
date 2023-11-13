@@ -1,0 +1,42 @@
+.button {
+    width: 335px;
+    height: 59px;
+    border: none;
+    border-radius: 5px;
+}
+
+.button.primary {
+    background: #5970FF;
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 27px;
+}
+
+.button.primary:disabled {
+    opacity: 0.5;
+}
+
+.button.secondary {
+    background: #D2D2D2;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.button.resultcardbutton {
+    width: 223px;
+    height: 46.54px;
+    background: #7CE3E1;
+    border-radius: 5px;
+    box-shadow: none;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+@media (max-width: 425px) {
+    .button.primary {
+        font-size: 20px;
+        line-height: 24px;
+    }
+}
