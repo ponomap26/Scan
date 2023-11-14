@@ -89,7 +89,7 @@ const Header = () => {
             </span>
           ) : (
             <Link className="overlap-group" to="/login">
-              <Button>Войти</Button>
+              <Button  variant="primary" size="sm">Войти</Button>
             </Link>
           )}
         </div>

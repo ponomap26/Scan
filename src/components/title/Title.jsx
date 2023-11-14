@@ -10,9 +10,9 @@ export default class Title extends React.Component {
             lineHeight: lineHeight
         }
         return (
-            <React.Fragment>
+            <>
                 {type === "h1" ? <h1 style={styles} className="title">{children}</h1> : <h2 style={styles} className="title">{children}</h2>}
-            </React.Fragment>
+            </>
         )
     }
 }

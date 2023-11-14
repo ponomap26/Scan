@@ -2,10 +2,10 @@ import React, { useState} from "react";
 import axios from "axios";
 import {Link} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
-// import "./Data.css";
+import "./Data.css";
 
 
-const Data = (props) => {
+const Data = () => {
     const navigate = useNavigate();
     // Create a state variable to store the input data
     const [data, setData] = useState({
@@ -49,7 +49,7 @@ const Data = (props) => {
         e.preventDefault();
         try {
             // Make a POST request with the URL and the data
-            const response = await axios.post(
+            const res = await axios.post(
                 "https://gateway.scan-interfax.ru/api/v1/objectsearch/histograms",
                 {
                     issueDateInterval: {
@@ -108,9 +108,10 @@ const Data = (props) => {
                 },
                 {headers: {Authorization: `Bearer ${token}`}}
             );
-            const Datas = [...response.data];
-            console.log(Datas);
+            // const Datas = [...response.data];
+            console.log(res);
             // Сохранить данные в state переменную с помощью useState хука
+            localStorage.setItem("results", JSON.stringify(res.data.data));
 
 
         } catch (error) {

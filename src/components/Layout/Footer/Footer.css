@@ -1,81 +1,71 @@
 body {
   display: flex;
   flex-direction: column;
-  /*min-height: 100vh;*/
+  min-height: 100vh;
 }
 
 main {
   flex: 1;
 }
 
-
 footer {
-    background: #029491;
-    height: 137px;
-    font-size: 14px;
-    line-height: 17px;
-    color: #ffffff;
-    position: -ms-device-fixed; /* Add this line */
-    bottom: 0;
-    flex-shrink: 0;
+  background: #029491;
+  height: 137px;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
+  flex-shrink: 0;
+  position: static;
 }
 
 footer .wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+.footer .container {
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
 }
 
 footer .right-side {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
 }
 
 footer .right-side address {
-    margin-bottom: 3px;
-    font-style: normal;
+  margin-bottom: 3px;
+  font-style: normal;
 }
 
 footer .right-side a {
-    text-decoration: none;
-    color: #ffffff;
+  text-decoration: none;
+  color: #ffffff;
 }
 
 footer .right-side p {
-    font-size: 12px;
-    line-height: 15px;
+  font-size: 12px;
+  line-height: 15px;
 }
 
 @media (max-width: 740px) {
-    footer .wrapper {
-        height: 100%;
-    }
-
-    footer img {
-        width: 111px;
-        height: 111px;
-        align-self: flex-start;
-    }
-}
-
-@media (max-width: 740px) {
-    footer .wrapper {
-        height: 100%;
-    }
-
-    footer img {
-        width: 111px;
-        height: 111px;
-        align-self: flex-start;
-    }
+  footer img {
+    width: 111px;
+    height: 111px;
+    align-self: flex-start;
+  }
 }
 
 @media (max-width: 310px) {
-    footer img {
-        width: 90px;
-        height: 90px;
-        align-self: flex-start;
-    }
+  footer img {
+    width: 90px;
+    height: 90px;
+    align-self: flex-start;
+  }
 }
