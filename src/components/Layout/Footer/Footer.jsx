@@ -8,7 +8,7 @@ export default function Footer() {
             <div className="wrapper">
                 <img src={logo} alt="Логотип компании СКАН" />
                 <div className="right-side">
-                    <div>
+                    <div className="right">
                         г. Москва, Цветной б-р, 40 <br />
                         <a href="tel:+74957712111">+7 495 771 21 11</a><br />
                         <a href="mailto:info@skan.ru">info@skan.ru</a>

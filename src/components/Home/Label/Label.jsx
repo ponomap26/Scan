@@ -1,11 +1,21 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
 import "./Label.css";
-import {Link} from "react-router-dom";
 import logo from "./main.png";
 import Button from 'react-bootstrap/Button'
 
 function Label() {
+    const navigate = useNavigate();
+     const isAuthenticated = !!localStorage.getItem("token");
+
+     const handleSecretPageClick = () => {
+    if (isAuthenticated) {
+      navigate("/data");
+    } else {
+      navigate("/login");
+    }
+  };
+
     return (
         <main className="label">
             <div className="wrapper">
@@ -13,9 +23,7 @@ function Label() {
                     <div className="title">сервис по поиску публикаций <br/> о компании <br/> по его ИНН</div>
                         <p className="desc">Комплексный анализ публикаций, получение данных в формате PDF на электронную
                             почту.</p>
-                    <Link to="/data">
-                        <Button className="button-1">Запросить данные</Button>
-                    </Link>
+                        <Button onClick={handleSecretPageClick} className="button-1">Запросить данные</Button>
                 </div>
                 <div className="image-2">
                     <img src={logo} alt="Inn" width="393px" height="429px"/>
@@ -26,4 +34,4 @@ function Label() {
     )
 }
 
-export default Label
+export default Label;

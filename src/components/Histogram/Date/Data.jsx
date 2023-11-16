@@ -1,13 +1,13 @@
-import React, { useState} from "react";
+import React, {useState} from "react";
 import axios from "axios";
-import {Link} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
 import "./Data.css";
+import {Button} from "react-bootstrap";
 
 
 const Data = () => {
     const navigate = useNavigate();
-    // Create a state variable to store the input data
+
     const [data, setData] = useState({
         startDate: "",
         endDate: "",
@@ -28,20 +28,20 @@ const Data = () => {
     });
     const token = localStorage.getItem("token");
     // Create a function to handle the change of the input data
-    const handleChange = (e) => {
-        // Get the name and value of the input field
-        const {name, value} = e.target;
-        // Set the data state with the updated value
-        setData((prevData) => ({...prevData, [name]: value}));
-    };
-
+    // const handleChange = (e) => {
+    //     // Get the name and value of the input field
+    //     const {name, value} = e.target;
+    //     // Set the data state with the updated value
+    //     setData((prevData) => ({...prevData, [name]: value}));
+    // };
+    //
     // Create a function to handle the toggle of the checkbox data
-    const handleToggle = (e) => {
-        // Get the name and checked status of the checkbox field
-        const {name, checked} = e.target;
-        // Set the data state with the updated status
-        setData((prevData) => ({...prevData, [name]: checked}));
-    };
+    // const handleToggle = (e) => {
+    //     // Get the name and checked status of the checkbox field
+    //     const {name, checked} = e.target;
+    //     // Set the data state with the updated status
+    //     setData((prevData) => ({...prevData, [name]: checked}));
+    // };
 
     // Create a function to submit the input data to the API
     const handleSubmit = async (e) => {
@@ -122,157 +122,151 @@ const Data = () => {
     };
 
     return (
-
-        <div className="box">
-            <div className="group">
-                <div className="overlap">
-                    <div className="div">
-                        <div className="text-wrapper">Начальная дата</div>
-                        <div className="overlap-group">
-                            <input
-                                type="datetime-local"
-                                id="startDate"
-                                name="startDate"
-                                value={data.startDate.value}
-                                onChange={handleChange}
-                            />
-                        </div>
-                        <div className="text-wrapper-3">*</div>
-                    </div>
-                    <div className="group-2">
-                        <div className="text-wrapper-4">Конечная дата</div>
-                        <div className="overlap-2">
-                            <input
-                                type="datetime-local"
-                                id="endDate"
-                                name="endDate"
-                                value={data.endDate.value}
-                                onChange={handleChange}
-                            />
-                        </div>
-                    </div>
-                    <div className="group-3">
-                        <div className="group-4">
-                            <div className="text-wrapper-6">ИНН компании</div>
-                            <div className="icons-wrapper">
+        <main className="searchpage">
+            <div className="wrapper">
+                <div className="left-side">
+                    <p>
+                        Найдите необходимые данные в пару кликов.
+                    </p>
+                    <p>
+                        Задайте параметры поиска.<br/> Чем больше заполните, тем точнее поиск
+                    </p>
+                    <form onSubmit={handleSubmit}>
+                        <div className="left-side">
+                            <label htmlFor="inn">
+                                ИНН компании
                                 <input
-                                    type="text"
-                                    id="inn"
-                                    name="inn"
-                                    value={data.inn.value}
-                                    onChange={handleChange}
-                                    maxLength="10"
+                                    type="number"
+
                                     placeholder="10 цифр"
+
+
                                 />
-                            </div>
-                        </div>
-                        <div className="group-5">
-                            <div className="text-wrapper-6">Тональность</div>
-                            <div className="icons-wrapper">
+                            </label>
+
+                            <label htmlFor="tonality">
+                                Тональность
                                 <select
-                                    id="tone"
-                                    name="tone"
-                                    value={data.tone.value}
-                                    onChange={handleChange}
+
+                                    defaultValue="any"
+
                                 >
+                                    <option value="positive">Позитивная</option>
+                                    <option value="negative">Негативная</option>
                                     <option value="any">Любая</option>
-                                    <option value="positive">Положительная</option>
-                                    <option value="negative">Отрицательная</option>
-                                    <option value="neutral">Нейтральная</option>
                                 </select>
+                            </label>
+                            <label htmlFor="amount">
+                                Количество документов в выдаче
+                                <input
+                                    type="number"
+
+                                    min="1"
+                                    max="1000"
+                                    placeholder="От 1 до 1000"
+                                />
+                            </label>
+
+
+                            <div className="range">
+                                <label>Диапазон поиск</label>
+                                <div className="range-inputs">
+                                    <input
+                                        type="text"
+
+                                        placeholder="Дата начала"
+
+
+                                        onFocus={(e) => (e.target.type = "date")}
+                                        onBlur={(e) => (e.target.type = "text")}
+                                    />
+                                    <input
+                                        type="text"
+
+                                        placeholder="Дата конца"
+
+
+                                        onFocus={(e) => (e.target.type = "date")}
+                                        onBlur={(e) => (e.target.type = "text")}
+                                    />
+                                </div>
                             </div>
+
                         </div>
-                        <div className="group-6">
-                            <div className="text-wrapper-6">Признак максимальной полноты</div>
-                            <div className="icons-wrapper">
+                        <div className="right-side">
+                            <div className="checkbox">
                                 <input
                                     type="checkbox"
-                                    id="fullness"
-                                    name="fullness"
-                                    checked={data.fullness.value}
-                                    onChange={handleToggle}
+                                    id="maxsign"
+                                    defaultChecked={true}
+
+
                                 />
+                                <label htmlFor="maxsign">Признак максимальной полноты</label>
                             </div>
-                        </div>
-                        {/*<div className="text-wrapper-6">Упоминания в бизнес-контексте</div>*/}
-                        {/*<div className="icons-wrapper">*/}
-                        {/*    <input*/}
-                        {/*        type="checkbox"*/}
-                        {/*        id="business"*/}
-                        {/*        name="business"*/}
-                        {/*        checked={data.business.value}*/}
-                        {/*        onChange={handleToggle}*/}
-                        {/*    />*/}
-                        {/*</div>*/}
-                    </div>
-                    <div className="group-8">
-                        <div className="text-wrapper-6">Главная роль в публикации</div>
-                        <div className="icons-wrapper">
-                            <input
-                                type="checkbox"
-                                id="mainRole"
-                                name="mainRole"
-                                checked={data.mainRole.value}
-                                onChange={handleToggle}
-                            />
-                        </div>
-                    </div>
-                    <div className="group-9">
-                        <div className="text-wrapper-6">Риски</div>
-                        <div className="icons-wrapper">
-                            <input
-                                type="checkbox"
-                                id="riskFactors"
-                                name="riskFactors"
-                                checked={data.riskFactors.value}
-                                onChange={handleToggle}
-                            />
-                        </div>
-                    </div>
-                    <div className="group-10">
-                        <div className="text-wrapper-6">Технические новости</div>
-                        <div className="icons-wrapper">
-                            <input
-                                type="checkbox"
-                                id="excludeTechNews"
-                                name="excludeTechNews"
-                                checked={data.excludeTechNews.value}
-                                onChange={handleToggle}
-                            />
-                        </div>
-                    </div>
-                </div>
-                <div className="group-11">
-                    <div className="text-wrapper-8">Анонсы</div>
-                    <div className="icons-wrapper">
-                        <input
-                            type="checkbox"
-                            id="excludeAnnouncements"
-                            name="excludeAnnouncements"
-                            checked={data.excludeAnnouncements.value}
-                            onChange={handleToggle}
-                        />
-                    </div>
-                </div>
-                <div className="group-12">
-                    <div className="text-wrapper-8">Сводки</div>
-                    <div className="icons-wrapper">
-                        <input
-                            type="checkbox"
-                            id="excludeDigests"
-                            name="excludeDigests"
-                            checked={data.excludeDigests.value}
-                            onChange={handleToggle}
-                        />
-                    </div>
-                </div>
+                            <div className="checkbox">
+                                <input
+                                    type="checkbox"
+
+                                    defaultChecked={true}
 
 
-                <button className="submit-button" onClick={handleSubmit}>
-                    Получить
-                </button>
+                                />
+                                <label htmlFor="mentionbusiness">Упоминания в бизнес-контексте</label>
+                            </div>
+                            <div className="checkbox">
+                                <input
+                                    type="checkbox"
+
+                                    defaultChecked={true}
+
+
+                                />
+                                <label htmlFor="mainrole">Главная роль в публикации</label>
+                            </div>
+                            <div className="checkbox">
+                                <input
+                                    type="checkbox"
+
+
+                                />
+                                <label htmlFor="riskonly">Публикации только с риск-факторами</label>
+                            </div>
+                            <div className="checkbox">
+                                <input
+                                    type="checkbox"
+
+
+                                />
+                                <label htmlFor="techmarketnews">Включать технические новости рынков</label>
+                            </div>
+                            <div className="checkbox">
+                                <input
+                                    type="checkbox"
+                                    defaultChecked={true}
+
+
+                                />
+                                <label htmlFor="announces">Включать анонсы и календари</label>
+                            </div>
+                            <div className="checkbox">
+                                <input
+                                    type="checkbox"
+                                />
+                                <label htmlFor="newsbulletins">Включать сводки новостей</label>
+                            </div>
+                            <Button
+                                type="submit"
+                                stylization="primary"
+
+                            >Поиск</Button>
+                            <p>* Обязательные к заполнению поля</p>
+                        </div>
+                    </form>
+                </div>
+
             </div>
-        </div>
+        </main>
 
     )
 };
