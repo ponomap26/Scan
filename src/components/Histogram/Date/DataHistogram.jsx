@@ -3,7 +3,9 @@ import axios from "axios";
 import {useNavigate} from "react-router-dom";
 import "./DataHistogram.css";
 import {Button} from "react-bootstrap";
-
+import mainImage from "./searchblock.png";
+import documentImage from "./document.png";
+import foldersImage from "./folders.png";
 
 const DataHistogram = () => {
     const navigate = useNavigate();
@@ -246,9 +248,18 @@ const DataHistogram = () => {
 
                             >Поиск</Button>
                             <p>* Обязательные к заполнению поля</p>
+
                         </div>
                     </form>
+                    <div className="images">
+                        <div className="images-line">
+                            <img src={documentImage} alt=""/>
+                            <img src={foldersImage} alt=""/>
+                        </div>
+                     </div>
+                    <img className="mainImage" src={mainImage} alt=""/>
                 </div>
+
 
             </div>
         </main>
