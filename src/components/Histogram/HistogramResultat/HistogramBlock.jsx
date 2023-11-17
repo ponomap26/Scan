@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
-import Datas from "../Date/Data.jsx";
-import ResultsSimpleSlider from "../ResultHistogramSlider/ResulHistogramSlider.jsx";
+import Datas from "../Date/DataHistogram.jsx";
+import ResultsSimpleSlider, {formatData} from "../ResultHistogramSlider/HistogramSlider.jsx";
 import "./HistogramBlock.css";
 import HistogramCard from "./HisrtiogramCard";
 import axios from "axios";
 import {Button} from "react-bootstrap";
-// import mainImage from "./resultspage.png";
+
 function HistogramBlock() {
     const [results, setResults] = useState("loading");
     const [totalResults, setTotalResults] = useState(0);
@@ -42,35 +42,45 @@ function HistogramBlock() {
     }, [totalCards]);
 
     const searchPublications = async () => {
-    const request = localStorage.getItem("request");
-    try {
-        const LOGIN_URL = "/objectsearch";
-        const token = "your_token_here"; // Replace with your actual authentication token
-        const response = await axios.post("https://gateway.scan-interfax.ru/api/v1/objectsearch", request, {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        });
-        setCardsIds(response.data.items);
-    } catch (err) {
-        console.log(err);
+        const request = localStorage.getItem("request");
+
+        try {
+
+            const token = localStorage.getItem("token");
+            const response = await axios.post("https://gateway.scan-interfax.ru/api/v1/objectsearch", request, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json" // Set the appropriate media type
+                }
+            });
+            setCardsIds(response.data.items);
+        } catch (err) {
+            console.log(err);
+        }
     }
-}
 
     const addCards = async () => {
-        const cardsArr = [];
-        cardsArr.push(...cards);
+        const cardsArr = [...cards];
         let localIndex = index;
         if (totalCards !== 0) {
             for (let counter = 0; counter < 10; counter++) {
                 if (localIndex < totalCards) {
                     try {
-                        const LOGIN_URL = "/documents";
+                        // const LOGIN_URL = "/documents";
                         const request = {
                             ids: [cardsIds[localIndex].encodedId]
-                        }
-                        const response = await axios.post("https://gateway.scan-interfax.ru/api/v1/documents", request);
-                        cardsArr.push(response.data[0].ok)
+                        };
+                        const token = localStorage.getItem("token"); // Replace with your actual authentication token
+                        const response = await axios.post(
+                            "https://gateway.scan-interfax.ru/api/v1/documents",
+                            request,
+                            {
+                                headers: {
+                                    Authorization: `Bearer ${token}`
+                                }
+                            }
+                        );
+                        cardsArr.push(response.data[0].ok);
                         localIndex++;
                     } catch (err) {
                         console.log(err);
@@ -82,10 +92,26 @@ function HistogramBlock() {
         setCards(cardsArr);
         setLoadedResults(true);
         setLoadedCards(true);
+    };
+
+
+    function formatDate(str) {
+        let date = new Date(str);
+        let day = date.getDate();
+        let month = date.getMonth() + 1;
+        let year = date.getFullYear();
+
+        if (day < 10) {
+            day = "0" + day;
+        }
+        if (month < 10) {
+            month = "0" + month;
+        }
+
+        return day + "." + month + "." + year;
     }
 
-
-    return(
+    return (
         <main className="resultspage">
             <div className="wrapper">
                 <div className="information-block">
@@ -102,7 +128,7 @@ function HistogramBlock() {
 
                     >Общая сводка</title>
                     <p>Найдено {totalResults.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} вариантов</p>
-                    <ResultsSimpleSlider results={results} />
+                    <ResultsSimpleSlider results={results}/>
                     {/*<MobileResultsSimpleSlider results={results} />*/}
                 </div>
                 <div className="resultsblock">
@@ -125,8 +151,8 @@ function HistogramBlock() {
                                 />
                             })
                         }
-                            {
-                                index < totalCards ?
+                        {
+                            index < totalCards ?
                                 <a href="#"
                                     onClick={ async (e) => {
                                         e.preventDefault();
@@ -134,15 +160,18 @@ function HistogramBlock() {
                                     }}
                                 >
                                     <Button
-
+                                        type="button"
+                                        stylization="primary"
+                                        disabled={false}
                                     >Показать больше</Button>
                                 </a>
                                 : null
-                            }
+                        }
                     </div>
                 </div>
             </div>
         </main>
     )
 }
+
 export default HistogramBlock

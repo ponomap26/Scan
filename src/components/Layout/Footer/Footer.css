@@ -1,77 +1,67 @@
-body {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-main {
-  flex: 1;
-  height: 100%;
-}
-
-footer{
-  background: #0da6a3;
-  height: 100%;
-  font-size: 14px;
-  line-height: 17px;
-  color: #ffffff;
-
-  position: relative;
-  flex: 0 0 auto;
+footer {
+    background: #029491;
+    height: 137px;
+    font-size: 14px;
+    line-height: 17px;
+    color: #ffffff;
 }
 
 footer .wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-.footer .container {
-  padding: 20px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
-}
-.footer .right {
-  margin-bottom: 20px;
-  right: 20px;
 
-}
 footer .right-side {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
 }
 
 footer .right-side address {
-  margin-bottom: 3px;
-  font-style: normal;
+    margin-bottom: 21px;
+    font-style: normal;
 }
 
 footer .right-side a {
-  text-decoration: none;
-  color: #ffffff;
+    text-decoration: none;
+    color: #ffffff;
 }
 
 footer .right-side p {
-  font-size: 16px;
-  line-height: 20px;
+    font-size: 12px;
+    line-height: 15px;
 }
 
 @media (max-width: 740px) {
-  footer img {
-    width: 111px;
-    height: 111px;
-    align-self: flex-start;
-  }
+    footer .wrapper {
+        height: 100%;
+    }
+
+    footer img {
+        width: 111px;
+        height: 111px;
+        align-self: flex-start;
+    }
+}
+
+@media (max-width: 740px) {
+    footer .wrapper {
+        height: 100%;
+    }
+
+    footer img {
+        width: 111px;
+        height: 111px;
+        align-self: flex-start;
+    }
 }
 
 @media (max-width: 310px) {
-  footer img {
-    width: 90px;
-    height: 90px;
-    align-self: flex-start;
-  }
+    footer img {
+        width: 90px;
+        height: 90px;
+        align-self: flex-start;
+    }
 }

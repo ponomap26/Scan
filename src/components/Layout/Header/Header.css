@@ -1,8 +1,18 @@
-.screen {
-    background-color: #ffffff;
+header {
     height: 93px;
-    position: relative;
-    width: 100%;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+header .screen {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+header .group {
+    display: flex;
+    align-items: center;
 }
 
 .screen .SGN {
@@ -25,8 +35,6 @@
 .screen .text-wrapper {
     color: #000000;
     font-family: Helvetica;
-
-
     font-size: 14px;
     font-weight: 400;
     left: 0;
@@ -68,7 +76,6 @@
     width: 253px;
 }
 
-
 .screen .overlap-group-wrapper {
     height: 26px;
     left: 186px;
@@ -85,7 +92,6 @@
     width: 65px;
 }
 
-
 .screen .rectangle {
     background-color: #029491;
     height: 26px;
@@ -97,10 +103,9 @@
     width: 2px;
 }
 
-
 .data-1 {
     font-size: 14px;
-    color: #070707; /* Set the desired font color */
+    color: #070707;
     background-color: #dad3d3;
     border-radius: 5px;
     left: 300px;
@@ -108,7 +113,7 @@
     position: relative;
     top: 20px;
     width: 175px;
-    line-height: 1; /* Change this value to decrease the line height */
+    line-height: 1;
 }
 
 @media only screen and (max-width: 768px) {
@@ -152,15 +157,17 @@
         width: 125px;
     }
 }
-@media only screen and (max-width: 480px) {
-  .screen .group,
-  .screen .group-2 {
-    flex-wrap: wrap; /* Allow links to wrap within the container */
-  }
 
-  .screen .div,
-  .screen .text-wrapper-2 {
-    margin-right: 0; /* Reset margin */
-    margin-bottom: 10px; /* Add margin to create spacing between links */
-  }
+@media only screen and (max-width: 480px) {
+    .screen .group,
+    .screen .group-2 {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .screen .div,
+    .screen .text-wrapper-2 {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
 }

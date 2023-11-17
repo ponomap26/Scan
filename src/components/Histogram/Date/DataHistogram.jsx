@@ -1,11 +1,11 @@
 import React, {useState} from "react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
-import "./Data.css";
+import "./DataHistogram.css";
 import {Button} from "react-bootstrap";
 
 
-const Data = () => {
+const DataHistogram = () => {
     const navigate = useNavigate();
 
     const [data, setData] = useState({
@@ -27,28 +27,12 @@ const Data = () => {
         histogramTypes: ["totalDocuments", "riskFactors"]
     });
     const token = localStorage.getItem("token");
-    // Create a function to handle the change of the input data
-    // const handleChange = (e) => {
-    //     // Get the name and value of the input field
-    //     const {name, value} = e.target;
-    //     // Set the data state with the updated value
-    //     setData((prevData) => ({...prevData, [name]: value}));
-    // };
-    //
-    // Create a function to handle the toggle of the checkbox data
-    // const handleToggle = (e) => {
-    //     // Get the name and checked status of the checkbox field
-    //     const {name, checked} = e.target;
-    //     // Set the data state with the updated status
-    //     setData((prevData) => ({...prevData, [name]: checked}));
-    // };
 
-    // Create a function to submit the input data to the API
     const handleSubmit = async (e) => {
-        // Prevent the default behavior of the form
+
         e.preventDefault();
         try {
-            // Make a POST request with the URL and the data
+
             const res = await axios.post(
                 "https://gateway.scan-interfax.ru/api/v1/objectsearch/histograms",
                 {
@@ -108,7 +92,7 @@ const Data = () => {
                 },
                 {headers: {Authorization: `Bearer ${token}`}}
             );
-            // const Datas = [...response.data];
+
             console.log(res);
             // Сохранить данные в state переменную с помощью useState хука
             localStorage.setItem("results", JSON.stringify(res.data.data));
@@ -138,6 +122,7 @@ const Data = () => {
                                 <input
                                     type="number"
 
+                                    required
                                     placeholder="10 цифр"
 
 
@@ -160,7 +145,7 @@ const Data = () => {
                                 Количество документов в выдаче
                                 <input
                                     type="number"
-
+                                    required
                                     min="1"
                                     max="1000"
                                     placeholder="От 1 до 1000"
@@ -175,14 +160,14 @@ const Data = () => {
                                         type="text"
 
                                         placeholder="Дата начала"
-
+                                        required
 
                                         onFocus={(e) => (e.target.type = "date")}
                                         onBlur={(e) => (e.target.type = "text")}
                                     />
                                     <input
                                         type="text"
-
+                                        required
                                         placeholder="Дата конца"
 
 
@@ -197,9 +182,9 @@ const Data = () => {
                             <div className="checkbox">
                                 <input
                                     type="checkbox"
-                                    id="maxsign"
-                                    defaultChecked={true}
 
+                                    defaultChecked={true}
+                                    required
 
                                 />
                                 <label htmlFor="maxsign">Признак максимальной полноты</label>
@@ -207,7 +192,7 @@ const Data = () => {
                             <div className="checkbox">
                                 <input
                                     type="checkbox"
-
+                                    required
                                     defaultChecked={true}
 
 
@@ -217,7 +202,7 @@ const Data = () => {
                             <div className="checkbox">
                                 <input
                                     type="checkbox"
-
+                                    required
                                     defaultChecked={true}
 
 
@@ -271,4 +256,4 @@ const Data = () => {
     )
 };
 
-export default Data;
+export default DataHistogram;
