@@ -124,37 +124,44 @@ header .group {
     }
 
     .screen .group {
-        left: 400px;
-        top: 18px;
-        width: 180px;
+        flex-direction: column;
+        align-items: flex-start;
+        left: 30px;
+        top: 70px;
+        width: auto;
     }
 
     .screen .div {
-        left: 70px;
+        left: 0;
+        margin-bottom: 10px;
     }
 
     .screen .text-wrapper-2 {
-        left: 150px;
+        left: 0;
+        margin-bottom: 10px;
     }
 
     .screen .group-2 {
-        left: 600px;
-        top: 15px;
-        width: 150px;
+        flex-direction: column;
+        align-items: flex-start;
+        left: 30px;
+        top: 170px;
+        width: auto;
     }
 
     .screen .overlap-group-wrapper {
-        left: 100px;
+        left: 0;
+        margin-bottom: 10px;
     }
 
     .screen .rectangle {
-        left: 80px;
+        left: 0;
     }
 
     .data-1 {
-        right: 100px;
-        top: 10px;
-        width: 125px;
+        right: auto;
+        top: 230px;
+        width: auto;
     }
 }
 
@@ -162,7 +169,8 @@ header .group {
     .screen .group,
     .screen .group-2 {
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .screen .div,
