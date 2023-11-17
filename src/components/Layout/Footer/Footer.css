@@ -1,68 +1,67 @@
-.screen_foot {
-    background-color: #029491;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    padding: 22px ;
+footer {
+    background: #029491;
+    height: 137px;
+    font-size: 14px;
+    line-height: 17px;
+    color: #ffffff;
+}
+
+footer .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer .right-side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     text-align: right;
-    border-radius: 5px;
-    image-rendering: revert;
-    cursor: pointer;
-    height: 93px;
-    width: 100%;
 }
 
-.eqw {
-    position: fixed;
-    left: 0;
-    height: 141px;
-    width: 141px;
-    object-fit: cover;
+footer .right-side address {
+    margin-bottom: 21px;
+    font-style: normal;
 }
 
-
-
-.text-wrapper,
-.text-wrapper-2 {
-    font-size: 15px;
-    color: white;
-    padding-right: 40px;
-    padding-top: 0px;
-    margin: 2px;
+footer .right-side a {
+    text-decoration: none;
+    color: #ffffff;
 }
 
-@media (max-width: 768px) {
-    .screen_foot {
-        height: 80px;
-        padding: 10px;
-        text-align: center;
+footer .right-side p {
+    font-size: 12px;
+    line-height: 15px;
+}
+
+@media (max-width: 740px) {
+    footer .wrapper {
+        height: 100%;
     }
 
-    .text-wrapper {
-        margin-top: 10px;
-        font-size: 12px;
-    }
-
-    .text-wrapper-2 {
-        margin-top: 5px;
-        font-size: 10px;
+    footer img {
+        width: 111px;
+        height: 111px;
+        align-self: flex-start;
     }
 }
 
-@media (max-width: 480px) {
-    .screen_foot {
-        height: 100px;
-        padding: 5px;
-        text-align: center;
+@media (max-width: 740px) {
+    footer .wrapper {
+        height: 100%;
     }
 
-    .text-wrapper {
-        margin-top: 10px;
-        font-size: 10px;
+    footer img {
+        width: 111px;
+        height: 111px;
+        align-self: flex-start;
     }
+}
 
-    .text-wrapper-2 {
-        margin-top: 5px;
-        font-size: 8px;
+@media (max-width: 310px) {
+    footer img {
+        width: 90px;
+        height: 90px;
+        align-self: flex-start;
     }
 }

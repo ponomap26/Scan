@@ -1,16 +1,21 @@
-import React from 'react';
-import "./Footer.css"
-import Eqw from "../../public/images/eqw-1@2x.png"
-import {Image} from "react-bootstrap";
+import React from "react";
+import logo from "../../public/images/footer-logo.svg";
+import "./Footer.css";
 
-const Footer = () => (
-    <div className="screen_foot" >
-        <Image className="eqw" alt="Eqw" src={Eqw} />
-        <p className="text-wrapper">г. Москва, Цветной б-р, 40</p>
-        <p className="text-wrapper"> +7 495 771 21 11</p>
-        <p className="text-wrapper"> info@skan.ru</p>
-        <p className="text-wrapper-2">Copyright. 2022</p>
-    </div>
-);
-
-export default Footer;
+export default function Footer() {
+    return(
+        <footer>
+            <div className="wrapper">
+                <img src={logo} alt="Логотип компании СКАН" />
+                <div className="right-side">
+                    <div className="right">
+                        г. Москва, Цветной б-р, 40 <br />
+                        <a href="tel:+74957712111">+7 495 771 21 11</a><br />
+                        <a href="mailto:info@skan.ru">info@skan.ru</a>
+                    </div>
+                    <p>Copyright. 2023</p>
+                </div>
+            </div>
+        </footer>
+    )
+}

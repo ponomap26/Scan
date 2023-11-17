@@ -1,0 +1,141 @@
+.label {
+    padding-bottom: 199px;
+
+}
+
+
+
+.label .image-2 .element {
+    height: 593px;
+    right: 0;
+    position: fixed;
+    top: 0;
+    width: 629px;
+}
+
+.button-1 {
+    background-color: #5970ff;
+    height: 59px;
+    width: 335px;
+    border-radius: 5px;
+}
+
+
+.button-1.primary {
+    background: #5970FF;
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 27px;
+}
+.button-1 {
+    width: 335px;
+    height: 59px;
+    border: none;
+    border-radius: 5px;
+}
+button-1 {
+    cursor: pointer;
+}
+body, button-1 {
+    font-family: "Inter", sans-serif;
+}
+* {
+    margin: 0;
+}
+
+
+.label .wrapper {
+    padding-top: 69px;
+    display: flex;
+    background-image: url("./main.png");
+    background-repeat: no-repeat;
+    background-position: 100% 10%;
+    background-size: 629px 593px;
+}
+
+.label .title {
+    max-width: 715px;
+    margin-bottom: 20px;
+    font-size:40px
+}
+
+.label p {
+    font-size: 20px;
+    line-height: 24px;
+    max-width: 540px;
+    margin-bottom: 70px;
+}
+
+
+@media (max-width: 760px) {
+    .label {
+        margin-top: 0;
+    }
+
+    .label .wrapper {
+        padding-top: 69px;
+    }
+
+    .label .title {
+        font-size: 55px !important;
+    }
+}
+
+@media (max-width: 760px) {
+    .label p {
+        max-width: 440px;
+    }
+
+    .label .title {
+        font-size: 50px !important;
+        line-height: 60px !important;
+    }
+}
+
+
+@media (max-width: 720px) {
+    .label .wrapper {
+        background-size: 347px;
+    }
+}
+
+
+@media (max-width: 360px) {
+    .label {
+        padding-bottom: 55px;
+    }
+
+    .label .wrapper {
+        padding-top: 20px;
+        margin-bottom: 0;
+    }
+
+    .label .title {
+        font-size: 28px !important;
+        line-height: 34px !important;
+        margin-bottom: 19px;
+        text-align: left;
+    }
+
+    .label p {
+        max-width: 100%;
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 32px;
+
+    }
+}
+
+.title {
+    font-family: Ferry, sans-serif;
+    font-style: normal;
+    font-weight: 900;
+}
+
+@media (max-width: 425px) {
+    .title {
+        font-size: 45px;
+        line-height: 34px;
+    }
+}

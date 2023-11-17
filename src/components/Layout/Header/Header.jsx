@@ -72,13 +72,13 @@ const Header = () => {
   return (
     <div className="screen">
       <img className="SGN" src={logo1} alt="logo" />
-      <div className="group">
+      <nav className="group">
         <Link className="text-wrapper" to="/">
           Главная
         </Link>
         <Link className="div">Тарифы</Link>
         <Link className="text-wrapper-2">FAQ</Link>
-      </div>
+      </nav>
       <div className="group-2">
         <Link className="text-wrapper-3">Зарегистрироваться</Link>
         <div className="overlap-group-wrapper">
@@ -89,7 +89,7 @@ const Header = () => {
             </span>
           ) : (
             <Link className="overlap-group" to="/login">
-              <Button>Войти</Button>
+              <Button  variant="primary" size="sm">Войти</Button>
             </Link>
           )}
         </div>
