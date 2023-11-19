@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
-import { Button } from "react-bootstrap";
+import  Button  from "react-bootstrap/Button";
 import logo1 from "../../public/images/sgn-09-24-2022-1663968217400-1.png";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -88,8 +88,8 @@ const Header = () => {
               <Button onClick={handleLogout}>Выйти</Button>
             </span>
           ) : (
-            <Link className="overlap-group" to="/login">
-              <Button  variant="primary" size="sm">Войти</Button>
+            <Link  to="/login">
+              <Button variant="primary" >Войти</Button>
             </Link>
           )}
         </div>

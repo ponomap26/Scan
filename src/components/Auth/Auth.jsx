@@ -8,7 +8,7 @@ import facebookLogo from "./facebook.png"
 import yandexLogo from "./yandex.png"
 import "./Auth.css";
 
-const LoginPage = () => {
+const Auth = () => {
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
@@ -104,4 +104,4 @@ const LoginPage = () => {
         ;
 };
 
-export default LoginPage;
+export default Auth;

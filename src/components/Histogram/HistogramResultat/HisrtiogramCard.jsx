@@ -1,5 +1,5 @@
 import React from "react";
-// import "./ResultCard.css";
+
 import "./HistogramCard.css"
 import DOMPurify from 'dompurify';
 import {Button} from "react-bootstrap";

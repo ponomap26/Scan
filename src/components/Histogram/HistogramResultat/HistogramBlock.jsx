@@ -43,10 +43,8 @@ function HistogramBlock() {
 
     const searchPublications = async () => {
         const request = localStorage.getItem("request");
-
+        const token = localStorage.getItem("token");
         try {
-
-            const token = localStorage.getItem("token");
             const response = await axios.post("https://gateway.scan-interfax.ru/api/v1/objectsearch", request, {
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -70,7 +68,7 @@ function HistogramBlock() {
                         const request = {
                             ids: [cardsIds[localIndex].encodedId]
                         };
-                        const token = localStorage.getItem("token"); // Replace with your actual authentication token
+                        const token = localStorage.getItem("token"); 
                         const response = await axios.post(
                             "https://gateway.scan-interfax.ru/api/v1/documents",
                             request,
@@ -154,10 +152,10 @@ function HistogramBlock() {
                         {
                             index < totalCards ?
                                 <a href="#"
-                                    onClick={ async (e) => {
-                                        e.preventDefault();
-                                        addCards();
-                                    }}
+                                   onClick={async (e) => {
+                                       e.preventDefault();
+                                       addCards();
+                                   }}
                                 >
                                     <Button
                                         type="button"
